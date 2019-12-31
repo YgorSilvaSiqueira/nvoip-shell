@@ -12,21 +12,25 @@
 
 #You should have received a copy of the GNU General Public License along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-###Inicio do Script###
+###Inicio do Script / Start Script ###
 # Seu Token da Nvoip. Acesse https://www.nvoip.com.br, crie sua para ter acesso ao seu Token.
 # English: Your Nvoip Token. Visit https://www.nvoip.com.br, create yours to have access to your Token.
+token_auth="Token Nvoip"
 
-#$1, $2, $3 e $4 são os parâmetros, em ordem, que você define no seu Servidor Zabbix. O $1 é o número que irá receber a chamada. Você pode reduzir, alterar a ordem ou acrescentar mais parâmetros.
-#English: $1, $2, $3 and $4 are parameters, in order, that you set in your Zabbix Server. $ 1 is the number that will receive the call. You can reduce, change the order or add more parameters.
+#Celular que irá receber a mensagem.
+#English: Mobile phone will receive the message.
+celular="Celular/Mobile Number"
 
-token_auth="{TOKEN NVOIP}"
+#Mensagem a ser enviada (Limite-se a 140 caracteres).
+#English: Message to send.
+msg="Mensagem a ser disparada"
 
 curl --include \
      --request POST \
      --header "Content-Type: application/json" \
      --header "token_auth: $token_auth" \
      --data-binary "{
-    \"celular\":\"$1\",
-    \"msg\":\"$2 $3 $4\"
+    \"celular\":\"$celular\",
+    \"msg\":\"$msg\"
 }" \
 'https://api.nvoip.com.br/v1/sms'
