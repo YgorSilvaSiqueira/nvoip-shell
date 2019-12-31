@@ -22,8 +22,13 @@ token_auth="TOKEN NVOIP"
 # English: Your Nvoip username (extension). It does not have to be online.
 caller="USUÁRIO NVOIP"
 
-#$1 e $2 são os parâmetros, em ordem, que você define no seu Servidor Zabbix. O $1 é o número que irá receber a chamada. Você pode reduzir, alterar a ordem ou acrescentar mais parâmetros.
-#English: $1 and $2 are the parameters, in order, that you set in your Zabbix Server. $ 1 is the number that will receive the call. You can reduce, change the order or add more parameters.
+#O telefone que irá receber a ligação.
+#English: Phone will receive the voice call.
+called="Telefone/Phone"
+
+#Texto que irá ser lido ou URL de arquivo MP3 que será tocado. A URL deve estar pública na internet e quando acessada via navegador, deverá abrir o player e começar a tocar.
+#English: Text to be read or MP3 file URL to be played. The URL must be public on the internet and when accessed via a browser, should open the player and start playing.
+audio="Texto/MP3"
 
 curl --include \
      --request POST \
@@ -31,7 +36,7 @@ curl --include \
      --header "token_auth: $token_auth" \
      --data-binary "{
     \"caller\":\"$caller\",
-    \"called\":\"$1\",
-    \"audio\":\"$2\"
+    \"called\":\"$called\",
+    \"audio\":\"$audio\"
 }" \
 'https://api.nvoip.com.br/v1/torpedovoz'
