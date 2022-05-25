@@ -28,6 +28,13 @@ Como usar:
 
 3. Aguarde alguns segundos que você irá receber a ligação.
 
+### Download dos audios das ligações do Painel Nvoip - download-audio-nvoip.sh
+Este script irá baixar os arquivos de audio das ligações presentes no histórico de ligações no Painel da Nvoip.
+
+1. Baixe o relatório de ligações no painel da Nvoip.
+2. Copie a coluna do audio e cole no arquivo cdr.txt
+3. Execute o script com o comando: sh download-audio-nvoip.sh
+
 # English Version
 Shell language scripts and libraries for use with the Nvoip API.
 
@@ -56,3 +63,10 @@ How to use it:
 2. Run the script with the command: sh send_torpedovoz_nvoip.sh
 
 3. Ready. You will now receive the Voice Call Message.
+
+### Download calls audios from Nvoip Panel - download-audio-nvoip.sh
+This script will download call audios from Nvoip Panel.
+
+1. Download the report of calls (cdrs) from Nvoip Panel.
+2. Copy the column of audio and past on file cdr.txt
+3. Run the script with the command: sh download-audio-nvoip.sh
